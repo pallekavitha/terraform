@@ -5,6 +5,14 @@ terraform {
       version = "5.17.0"
     }
   }
+
+  backend "s3" {
+    buckest = "roboshop-remote-states"
+    key = "foreach-demo"
+    region = "us-east-1"
+    dynamodb_table = "roboshop-locking"
+
+  }
 }
 
 provider "aws" {
